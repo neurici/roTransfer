@@ -59,7 +59,7 @@ Acces:
 ## 🚀 Instalare, 🧾 Actulizări și Securitate
 
 - 🛠️ [Instalare](INSTALL.md)
-- 🧾 [Changelog](CHANGELOG.md)
+- 🧾 [Jurnal Modificări](CHANGELOG.md)
 - 🔐 [Securitate](SECURITY.md)
 
 ---
