@@ -18,11 +18,11 @@ define('DB_PATH', STORAGE_PATH . '/db.sqlite');
 define('APP_BASE_URL', 'https://DOMENIUL-TAU.XXX/rotransfer');
 
 
-define('SMTP_HOST', 'mail-eu.smtp2go.com'); //ADRESA/IP HOST SMTP
+define('SMTP_HOST', ''); //ADRESA/IP HOST SMTP
 define('SMTP_PORT', 465); // 587 STARTTLS, 465 implicit TLS
-define('SMTP_USER', 'neurici'); //USERNAME AUTENTIFICARE SMTP
-define('SMTP_PASS', 'sergiu1981'); //PAROLĂ AUTENTIFICARE SMTP
-define('SMTP_FROM_EMAIL', 'noreply@neuro.sytes.net'); //DE LA ACEASTĂ ADRESĂ INIȚIATORII ȘI DESTINATARII TRANSFERURILOR VOR PRIMI NOTIFICĂRI
+define('SMTP_USER', ''); //USERNAME AUTENTIFICARE SMTP
+define('SMTP_PASS', ''); //PAROLĂ AUTENTIFICARE SMTP
+define('SMTP_FROM_EMAIL', ''); //DE LA ACEASTĂ ADRESĂ INIȚIATORII ȘI DESTINATARII TRANSFERURILOR VOR PRIMI NOTIFICĂRI
 define('SMTP_FROM_NAME', '• roTransfer •');
 define('SMTP_ENCRYPTION', 'tls'); // 'none' | 'starttls' | 'tls'
 
