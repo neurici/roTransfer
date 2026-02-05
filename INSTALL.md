@@ -97,7 +97,7 @@ Options -Indexes
 <Files "config.php">
   Require all denied
 </Files>
-
+```
 ❗ Această configurare:
 
     dezactivează listarea directoarelor
