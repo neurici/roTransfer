@@ -78,3 +78,36 @@ Configurează și datele SMTP conform providerului tău.
 - Protejează `admin.php` cu parolă
 - Nu expune `log.php` public
 - Fă backup periodic la `storage/`
+---
+
+## 🚨 Configurare de securitate OBLIGATORIE (.htaccess)
+
+Pentru securitatea aplicației, **ACEASTĂ CONFIGURARE ESTE OBLIGATORIE**.  
+Fără ea, fișiere sensibile pot fi accesate public.
+
+Adaugă următoarele reguli în fișierul `.htaccess` din directorul aplicației:
+
+```apache
+Options -Indexes
+
+<FilesMatch "\.(sqlite|log|ini)$">
+  Require all denied
+</FilesMatch>
+
+<Files "config.php">
+  Require all denied
+</Files>
+
+❗ Această configurare:
+
+    dezactivează listarea directoarelor
+
+    blochează accesul la baza de date SQLite
+
+    blochează fișierele de log
+
+    protejează fișierul config.php
+
+⚠️ NU sări peste acest pas. Este esențial pentru securitatea aplicației.
+
+markdown
