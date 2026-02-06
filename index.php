@@ -85,7 +85,7 @@
 <footer class="statusbar">
   <div class="status-left">
     <span class="status-dot"></span>
-    <span id="status" class="status-text">Pregătit.</span>
+    <span id="status" class="status-text">RoTransfer © 2026 Cogian Sergiu <a href="mailto:neurici@gmail.com">(neurici@gmail.com)</a>.</span>
   </div>
   <div class="status-mid">
     <div class="bar"><div id="bar"></div></div>
