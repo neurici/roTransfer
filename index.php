@@ -2,55 +2,9 @@
 <html lang="ro"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title><?=h(APP_NAME)?> - Transfer</title>
-<style>
-body{font-family:system-ui,Segoe UI,Roboto,Arial;background:#0b1020;color:#e8ecff;margin:0}
-.wrap{max-width:900px;margin:0 auto;padding:28px}
-.card{background:#111a33;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-label{display:block;font-size:12px;opacity:.85;margin-bottom:6px}
-input,textarea,select{width:100%;box-sizing:border-box;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:#0e1630;color:#e8ecff;padding:12px}
-textarea{min-height:90px;resize:vertical}
-.btn{background:#6d5efc;border:none;color:white;padding:12px 14px;border-radius:12px;cursor:pointer;font-weight:600}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.muted{opacity:.8;font-size:13px}
-.bar{height:10px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden}
-.bar>div{height:100%;width:0%;background:#39d98a}
-.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
-a{color:#9bd1ff}
-
-/* TOP */
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:12px;flex-wrap:wrap}
-.badge{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08)}
-.top-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-
-/* ===== File picker custom + drag&drop ===== */
-.filebox{display:flex;gap:10px;align-items:center}
-.filebtn{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.10);color:#e8ecff;padding:12px 14px;border-radius:12px;cursor:pointer;font-weight:700;white-space:nowrap}
-.filelabel{flex:1;min-width:220px;background:#0e1630;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px;color:#e8ecff;opacity:.95;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.dropzone{margin-top:10px;border:1px dashed rgba(255,255,255,.22);background:rgba(255,255,255,.04);border-radius:14px;padding:14px;text-align:center;transition:all .15s ease}
-.dropzone strong{display:block;font-size:13px}
-.dropzone span{display:block;margin-top:6px;font-size:12px;opacity:.8}
-.dropzone.drag{border-color:rgba(57,217,138,.9);background:rgba(57,217,138,.08)}
-.filesummary{margin-top:8px;font-size:12px;opacity:.85}
-
-/* ===== MOBILE FRIENDLY ===== */
-@media (max-width: 720px){
-  .wrap{padding:16px}
-  .card{padding:14px}
-  .row{grid-template-columns:1fr} /* o coloana */
-  h1{font-size:18px !important}
-
-  .top-actions{width:100%;gap:8px}
-  .badge{display:inline-flex;align-items:center}
-
-  .filebox{flex-direction:column;align-items:stretch}
-  .filebtn{width:100%}
-  .filelabel{width:100%;min-width:0}
-
-  .btn{width:100%}
-  .dropzone{padding:12px}
-}
-</style></head>
+<link rel="stylesheet" href="assets/app.css"/>
+<meta name="color-scheme" content="dark"/>
+</head>
 
 <body><div class="wrap">
 <div class="top">
@@ -124,13 +78,23 @@ a{color:#9bd1ff}
   <textarea id="msg" placeholder="Specificați un mesaj scurt pentru destinatar..."></textarea>
 </div>
 
-<div style="margin-top:12px"><button id="btn" class="btn">Inițializare Transfer</button></div>
-<div style="margin-top:14px" class="bar"><div id="bar"></div></div>
-<div id="status" class="muted" style="margin-top:10px"></div>
-<div id="result" class="mono" style="margin-top:10px"></div>
+<div style="margin-top:12px"><button id="btn" class="btn btn-primary">Inițializare Transfer</button></div>
+
 </div></div>
 
+<footer class="statusbar">
+  <div class="status-left">
+    <span class="status-dot"></span>
+    <span id="status" class="status-text">Pregătit.</span>
+  </div>
+  <div class="status-mid">
+    <div class="bar"><div id="bar"></div></div>
+  </div>
+  <div class="status-right mono" id="result"></div>
+</footer>
+
 <script>
+
 const CHUNK = <?= (int)CHUNK_BYTES ?>;
 
 const inputFiles = document.getElementById('files');
